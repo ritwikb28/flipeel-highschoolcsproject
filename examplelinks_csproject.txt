@@ -1,0 +1,3 @@
+example links for project implementation.
+Snapdeal = https://www.snapdeal.com/products/computers-external-hard-drives?sort=plrty#bcrumbSearch:external%20hard%20disk|bcrumbLabelId:3032
+Flipkart =https://www.flipkart.com/computers/storage/external-hard-disks/pr?sid=6bo,jdy,nl6&otracker=categorytree&fm=neo%2Fmerchandising&iid=M_320f5d5b-e356-4399-b250-a20df85e8c47_1_372UD5BXDFYS_MC.YWIQ0U3Z3EPA&otracker=hp_rich_navigation_5_1.navigationCard.RICH_NAVIGATION_Electronics~Storage~ExternalHardDrive_YWIQ0U3Z3  
