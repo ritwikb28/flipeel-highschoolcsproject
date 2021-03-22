@@ -1,8 +1,8 @@
-##FLIPEEL##
-#Computer Science Project 2020-21#
+# FLIPEEL
+## Computer Science Project 2020-21
 
-FLIPEEL is a simple application that compares the prices , 
-delivery charges and other conditions related to a particular product 
+FLIPEEL is a simple application that compares the prices ,
+delivery charges and other conditions related to a particular product
 available on two of the leading online shopping websites in India namely Flipkart and Snapdeal.
 
 It uses python as the serving language. The popular tool ie web-scrapping is the major concept behind this.
