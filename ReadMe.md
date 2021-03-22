@@ -24,7 +24,7 @@ A database will also be added to the project to store user data
 Copyright 2021 Ritwik Bhardwaj
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
-associated documentation files (the "Software"), to deal in the Software with restriction,
+associated documentation files (the "Software"), to deal in the Software with restriction
 to copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
 and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
