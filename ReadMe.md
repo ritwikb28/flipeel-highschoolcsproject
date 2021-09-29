@@ -1,4 +1,5 @@
 # FLIPEEL
+
 ## Computer Science Project 2020-21
 
 FLIPEEL is a simple application that compares the prices ,delivery charges and other conditions related to a particular product available on two of the leading online shopping websites in India namely Flipkart and Snapdeal.
@@ -12,6 +13,7 @@ Here web-scrapping is done via the python library BeautifulSoup (BS4). Another i
 The application requires to be fed URLs(from flipkart and snapdeal only) for product-data scrapping.
 
 ## Future Goals
+
 The program will also be equipped with a feature of notifying
 the client via email about a price dip(from budget set by client) or a offer on the targetted prodcut.
 
@@ -32,6 +34,3 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-

@@ -8,7 +8,7 @@ if client_proceed == "tech market":
     if stdinp == "Y":
         import server_side
         server_side
-    print("Hi, we are so excited to serve you",fname,"\nplease note that FLIPEEL is still in developement\nthank you!")
+        print("Hi, we are so excited to serve you",fname,"\nplease note that FLIPEEL is still in developement\nthank you!")
     client_webpage = input('Where do you want to shop today, tell us!\n(flipkart -f , snapdeal - s):\n')
 
     if client_webpage == "f":
@@ -20,13 +20,11 @@ if client_proceed == "tech market":
         import snapdeal_side
         snapdeal_side
         print("thank you for shopping with us")
-    else:
-        print("To access our services, accepting conditions and policy is mandatory:/")
 elif client_proceed == "account access":
     import account_access
     account_access
-elif client_proceed == "about us":
-    print("in dev")
+else:
+    print("wrong proceed code, try again")
 
 
 

@@ -6,7 +6,7 @@ con = mysqltr.connect(host = "localhost", user = "root", password = "ritwik", da
 
 cursor = con.cursor()
 print("please note that you are now creating an account")
-proceed = input("N/Y")
+proceed = input("N/Y\n")
 if proceed == "N":
     print("thank you")
 if proceed == "Y":
