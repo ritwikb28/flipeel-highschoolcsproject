@@ -22,7 +22,7 @@ if hello == "y" :
                     y = cursor.execute(sql1, ([updated_n],ph))
                     con.commit()
                     if y == 1:
-                        print("detail updated")
+                        print("detail updated") 
                         print("rerun for multiple edits")
                 elif change == "p":
                     ph = int(input("confirm your phone number"))
