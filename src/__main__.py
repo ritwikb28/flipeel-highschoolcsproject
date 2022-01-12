@@ -1,3 +1,6 @@
+import pyfiglet
+result = pyfiglet.figlet_format("FLIPEEL")
+print(result)
 print("##WELCOME TO FLIPEEL 2.0, We are so excited for you to see our fresh features!##")
 client_proceed = input("how can we serve you today? (account access/ tech market)"'\n')
 fname = input("your name:")

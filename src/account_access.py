@@ -1,4 +1,7 @@
+import pyfiglet
 import pymysql as mysqltr
+result = pyfiglet.figlet_format("YOUR ACCOUNT")
+print(result)
 con = mysqltr.connect(host = "localhost", user = "root", password = "ritwik", database = "project")
 
 hello = input("do you already have an account? (y/n)")
