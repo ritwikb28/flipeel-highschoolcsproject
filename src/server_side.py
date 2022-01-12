@@ -9,6 +9,7 @@ print("please note that you are now creating an account")
 proceed = input("N/Y\n")
 if proceed == "N":
     print("thank you")
+    signin = input('do you want to sign in instead?')
 if proceed == "Y":
     sql = "insert into `user_data` (`name`, `ph_no`,`email`, `prod`, `city`, `date`) Values(%s, %s, %s, %s, %s, %s)"
     name = input("name:")

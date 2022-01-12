@@ -3,6 +3,8 @@ from os import name
 import requests
 from bs4 import BeautifulSoup as soup 
 
+
+print('''product library in development''')
 my_url = "https://www.snapdeal.com/products/computers?sort=plrty"
 
 page_html = requests.get(my_url)
