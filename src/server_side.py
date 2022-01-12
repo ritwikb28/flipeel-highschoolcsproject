@@ -12,7 +12,7 @@ if proceed == "N":
 if proceed == "Y":
     sql = "insert into `user_data` (`name`, `ph_no`,`email`, `prod`, `city`, `date`) Values(%s, %s, %s, %s, %s, %s)"
     name = input("name:")
-    ph_no = input("phone number:")
+    ph_no = int(input("phone number:"))
     email = input("email id:")
     prod = input("product of intrest:")
     city = input("city of residence:")
