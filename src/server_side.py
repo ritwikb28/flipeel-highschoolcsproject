@@ -1,8 +1,8 @@
 import pymysql as mysqltr
 con = mysqltr.connect(host = "localhost", user = "root", password = "ritwik", database = "project")
 
-if con.is_connected() == False:
-    print("error")
+#if con.is_connected() == False:
+    #print("error")
 
 cursor = con.cursor()
 print("please note that you are now creating an account")

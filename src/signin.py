@@ -1,10 +1,13 @@
-from re import search
+from re import I, search
+import sys
 import pymysql as mysqltr
+import pyfiglet
 con = mysqltr.connect(host = "localhost", user = "root", password = "ritwik", database = "project")
 
-if con.is_connected() == False:
-    print("error")
-
+#if con.is_connected() == False:
+    #print("error")
+result = pyfiglet.figlet_format("SIGN IN PAGE")
+print(result)
 cursor = con.cursor()
 forward = input("sign in (I)/ sign up(U)")
 if forward == "I":
@@ -17,19 +20,20 @@ if forward == "I":
         sql1 = "select name from user_data where ph_no = %a"
         y = cursor.execute(sql1,ph)
         con.commit()
-        if y == name:
-            print("welcome to flipeel", y)
-            print("reverting to main page")
+        if y == 1:
+            print("welcome to flipeel", name)
+            print("---------reverting to main page---------")
         else:
             print("Invalid credentials. Log in failed.")
+            sys.exit()
 
     elif sinput == "ei":
-        ei = int(input("email id:"))
+        ei = input("email id:")
         sql1 = "select name from user_data where email = %a"
         y = cursor.execute(sql1,ei)
         con.commit()
-        if y == name:
-            print("welcome to flipeel", y)
+        if y == 1:
+            print("welcome to flipeel", name)
             print("reverting to main page")
         else:
             print("Inalid credentials. Log in failed.")
