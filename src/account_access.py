@@ -13,72 +13,94 @@ if hello == "y" :
         if acc == "d": 
             name = input("account name:")
             cursor = con.cursor()
-            sql = "select * from user_data where Name = %s "
-            cursor.execute(sql, [name])
+            sql = "select * from user_data where Name = %s " #creating a query for the required action of finding details related to client's name in the db
+            cursor.execute(sql, [name]) #executing the same 
+            #asking client to whether they want to update details or delete
             hi = input("do you intend to update acc details or delete? (u/d)")
+            #logical block 1A (i): details to be updated
             if hi == "u":
+                #giving client option of details to update
                 change = input('''what do you want to change:
                 Name (n)
                 PhoneNumber (p)
                 EmailId (e)''')
+                #logical block 1A(i).1: name updation system
                 if change == "n":
                     ph = int(input("confirm your phone number"))
                     updated_n = input("updated name:")
-                    sql1 = "update user_data SET Name = %s WHERE PhoneNumber = %a"
-                    y = cursor.execute(sql1, ([updated_n],ph))
+                    sql1 = "update user_data SET name = %s WHERE ph_no = %a" #creating query for the action.
+                    y = cursor.execute(sql1, ([updated_n],ph)) #executing the query by replacing the placeholder with the pre saved variable.
                     con.commit()
                     if y == 1:
-                        print("detail updated") 
+                        print("detail updated") #indicates that a row is effected and the required change has been reflected in the database's table
                         print("rerun for multiple edits")
+                #logical block 1A(i).2: phone number updation system
                 elif change == "p":
                     ph = int(input("confirm your phone number"))
                     updated_p = int(input("updated phone:"))
-                    sql1 = "update user_data SET PhoneNumber = %s WHERE PhoneNumber = %a"
-                    y = cursor.execute(sql1, ([updated_p],ph))
+                    sql1 = "update user_data SET ph_no = %s WHERE ph_no = %a" #creating the query that updates phone number of the user 
+                    y = cursor.execute(sql1, ([updated_p],ph)) #executing by replacing the placeholder
                     con.commit()
                     if y == 1:
-                        print("detail updated")
+                        print("detail updated") #database's table effected
                         print("rerun for multiple edits")
+                #logical block 1A(i).3
                 elif change == "e":
                     ph = int(input("confirm your phone number"))
                     updated_id = input("updated emailid:")
-                    sql1 = "update user_data SET EmailId = %s WHERE PhoneNumber = %a"
+                    sql1 = "update user_data SET email = %s WHERE ph_no = %a" #creating the query that updates phone number of the user 
                     y = cursor.execute(sql1, ([updated_id],ph))
                     con.commit()
+                    #implemting the query and observing database change.
                     if y == 1:
                         print("detail updated")
                         print("rerun for multiple edits")
+            #logical block 1A(ii): deleting details as per user's command
             elif hi == "d":
+                #program requesting user's input to implement conditional blocks accordingly
+                #erasing all account data is also an option given to the client
                 delete = input('''what do you want to change:
                 Name (n)
                 PhoneNumber (p)
                 EmailId (e)
                 delete account(da)''')
+                #logical block 1A(ii).1: logical deletion of name 
                 if delete == "n":
-                    ph = int(input("confirm your phone number"))
-                    sql1 = "update user_data SET Name = NULL WHERE PhoneNumber = %a"
-                    y = cursor.execute(sql1, [ph])
+                    n = int(input("confirm your phone number"))
+                    sql1 = "update user_data SET name = NULL WHERE ph_no = %a"
+                    y = cursor.execute(sql1, [n])
                     con.commit()
                     if y == 1:
-                        print("detail updated")
+                        print("detail deleted")
                         print("rerun for multiple edits or to update")
+                #logical block 1A(ii).2: logical deletion of phone number
                 elif delete == "p":
                     ph = int(input("confirm your phone number"))
-                    updated_p = int(input("updated phone:"))
-                    sql1 = "update user_data SET PhoneNumber = NULL WHERE PhoneNumber = %a"
+                    sql1 = "update user_data SET ph_no = NULL WHERE ph_no = %a"
                     y = cursor.execute(sql1, [ph])
+                    con.commit()
+                    if y == 1:
+                        print("detail deleted")
+                        print("rerun for multiple edits or to update")
+                #logical block 1A(ii).3: logical deletion of email
+                elif delete == "e":
+                    e = int(input("confirm your email id"))
+                    sql1 = "delete from user_data SET email = NULL WHERE email = %a"
+                    y = cursor.execute(sql1, [e])
                     con.commit()
                     if y == 1:
                         print("detail updated")
                         print("rerun for multiple edits or to update")
+                #logical block 1A(ii).4: logical deletion of all the details associated to the client's account
                 elif delete == "da":
                     ph = int(input("confirm your phone number"))
-                    sql1 = "DELETE from user_data WHERE PhoneNumber = %a"
+                    sql1 = "DELETE from user_data WHERE ph_no = %a"
                     y = cursor.execute(sql1, [ph])
                     con.commit()
                     if y == 1:
                         print("detail updated")
                         print("rerun for multiple edits or to update")
+#account does not exist. directed to the main page for a rerun of the program.
 else:
     print("create an account today!")
     import __main__
