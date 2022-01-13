@@ -2,12 +2,15 @@ import pyfiglet
 import pymysql as mysqltr
 result = pyfiglet.figlet_format("YOUR ACCOUNT")
 print(result)
+#establishing connected with mysql on computer server to retrive the application's databse
 con = mysqltr.connect(host = "localhost", user = "root", password = "ritwik", database = "project")
 
-hello = input("do you already have an account? (y/n)")
+hello = input("do you already have an account? (y/n)") #confiriming account status
+#logical block 1: dashboard for pre existing account
 if hello == "y" :
-        acc = input('''proceed to dashboard? (d)''')
-        if acc == "d":
+        acc = input('''proceed to dashboard? (d)''') #program requires confiramtion to move on for deleting and updating the account.
+        #logical block 1A: retrieving all data from the table of the project data base
+        if acc == "d": 
             name = input("account name:")
             cursor = con.cursor()
             sql = "select * from user_data where Name = %s "
