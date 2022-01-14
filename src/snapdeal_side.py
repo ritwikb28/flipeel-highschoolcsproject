@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup as soup
 
 
 print('''product library in development''')
+print("feature in stock: Computers and Peripherals")
 my_url = "https://www.snapdeal.com/products/computers?sort=plrty"
 
 page_html = requests.get(my_url)

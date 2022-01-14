@@ -66,37 +66,41 @@ if hello == "y" :
                 delete account(da)''')
                 #logical block 1A(ii).1: logical deletion of name 
                 if delete == "n":
-                    n = int(input("confirm your phone number"))
-                    sql1 = "update user_data SET name = NULL WHERE ph_no = %a"
-                    y = cursor.execute(sql1, [n])
-                    con.commit()
+                    n = int(input("confirm your phone number")) #taking number to associate the client's name with it
+                    sql1 = "update user_data SET name = NULL WHERE ph_no = %a"  #query for setting the associated name as NONE
+                    y = cursor.execute(sql1, [n]) #implementing the query
+                    con.commit() #commiting all changes to the db's table
+                    #following demarcates that the program has made changes to the table
                     if y == 1:
                         print("detail deleted")
-                        print("rerun for multiple edits or to update")
+                        print("rerun for multiple edits or to update") #if the client want to delete a detail again, a rerun is required.
                 #logical block 1A(ii).2: logical deletion of phone number
                 elif delete == "p":
-                    ph = int(input("confirm your phone number"))
-                    sql1 = "update user_data SET ph_no = NULL WHERE ph_no = %a"
-                    y = cursor.execute(sql1, [ph])
-                    con.commit()
+                    ph = int(input("confirm your phone number")) #taking number to associate the client's already saved phone number in the db with it
+                    sql1 = "update user_data SET ph_no = NULL WHERE ph_no = %a" #query for setting the associated phone number as NONE
+                    y = cursor.execute(sql1, [ph]) #implementing the query by replacing the placeholder with the variable
+                    con.commit() #commiting all changes to the db's tables
+                    #following demarcates that the program has made changes to the table
                     if y == 1:
                         print("detail deleted")
                         print("rerun for multiple edits or to update")
                 #logical block 1A(ii).3: logical deletion of email
                 elif delete == "e":
-                    e = int(input("confirm your email id"))
-                    sql1 = "delete from user_data SET email = NULL WHERE email = %a"
-                    y = cursor.execute(sql1, [e])
-                    con.commit()
+                    e = int(input("confirm your email id")) ##taking number to associate the client's email in the db with it
+                    sql1 = "delete from user_data SET email = NULL WHERE email = %a" #query for setting the associated email as NONE
+                    y = cursor.execute(sql1, [e])#implementing the query by replacing the placeholder with the variable
+                    con.commit()#commiting all changes to the db's tables
+                    #following demarcates that the program has made changes to the table
                     if y == 1:
                         print("detail updated")
                         print("rerun for multiple edits or to update")
                 #logical block 1A(ii).4: logical deletion of all the details associated to the client's account
-                elif delete == "da":
-                    ph = int(input("confirm your phone number"))
-                    sql1 = "DELETE from user_data WHERE ph_no = %a"
-                    y = cursor.execute(sql1, [ph])
-                    con.commit()
+                elif delete == "da": #this is th feature that allows user to delete the whole account
+                    ph = int(input("confirm your phone number")) #confirming here is also important because all data will be erased
+                    sql1 = "DELETE from user_data WHERE ph_no = %a" #creating a query that deletes all details of client's account by associating their phone number with it
+                    y = cursor.execute(sql1, [ph])#implementing the query by replacing the placeholder with the variable
+                    con.commit()#commiting all changes to the db's tables
+                    #following demarcates that the program has made changes to the table
                     if y == 1:
                         print("detail updated")
                         print("rerun for multiple edits or to update")
