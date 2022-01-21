@@ -8,7 +8,7 @@ con = mysqltr.connect(host = "localhost", user = "root", password = "ritwik", da
     #print("error")
 result = pyfiglet.figlet_format("SIGN IN PAGE")
 print(result)
-#cursor for mantaining direction in query
+#cursor for organised implementation of query
 cursor = con.cursor()
 #taking choice from client for logical blocks
 forward = input("sign in (I)/ sign up(U)")
@@ -27,22 +27,49 @@ if forward == "I":
         #logical block 1A(i)
         if y == 1: # y indicates the number of rows effected so we need one line to be effected by the program
             print("welcome to flipeel", name)
+            #sign in welcome
+
             print("---------reverting to main page---------")
         else: #if more or none rows are effected by our query which indiacted there is no number associated in the data base or logical error
             print("Invalid credentials. Log in failed.")
             sys.exit() #breaks the program as sign in is required in order to use the services of flipeel
     #logical block 1B: log in srvice using email id
     elif sinput == "ei":  
-        ei = input("email id:")
+        ei = str(input("email id:"))
         sql1 = "select name from user_data where email = %a" #creating a query with a placeholder for the email id saved in the variable. 
         y = cursor.execute(sql1,ei) #executing the query
         con.commit() #commiting the changes made in the data base through the query
         #logical block 1B(i)
         if y == 1: 
             print("welcome to flipeel", name) #welcomes to services if one line is found to be associated to the given detail.
-            print("reverting to main page")
+            import smtplib
+            s = smtplib.SMTP('smtp.gmail.com', 587)
+            s.starttls()
+            s.login("sender email", "sender email password")
+            message = '''SIGN IN COMFIRMATION FROM FLIPEEL.
+            Hi! I am Ritwik Bhardwaj from FLIPEEL
+            Thank you for signing in and using our application service.
+            Have an amazing day:)
+            Stay safe.
+            PS: do not reply to this email.
+
+
+
+
+
+
+
+
+
+
+
+            flipeel 2022 <3                        '''
+            s.sendmail("sender email", ei, message)
+            s.quit()
+            
+            print("----reverting to main page----")
         else:
-            print("Inalid credentials. Log in failed.")
+            print("Invalid credentials. Log in failed.")
             sys.exit() #breaks program for the user as log in is a mandatory action
 
     else:

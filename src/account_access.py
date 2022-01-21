@@ -2,10 +2,11 @@ import pyfiglet
 import pymysql as mysqltr
 result = pyfiglet.figlet_format("YOUR ACCOUNT")
 print(result)
-#establishing connected with mysql on computer server to retrive the application's databse
+#establishing connection with mysql on computer server to retrive the application's databse
 con = mysqltr.connect(host = "localhost", user = "root", password = "ritwik", database = "project")
 
 hello = input("do you already have an account? (y/n)") #confiriming account status
+email_id = input("please confirm your email id")
 #logical block 1: dashboard for pre existing account
 if hello == "y" :
         acc = input('''proceed to dashboard? (d)''') #program requires confiramtion to move on for deleting and updating the account.
@@ -34,6 +35,29 @@ if hello == "y" :
                     if y == 1:
                         print("detail updated") #indicates that a row is effected and the required change has been reflected in the database's table
                         print("rerun for multiple edits")
+                        import smtplib
+                        s = smtplib.SMTP('smtp.gmail.com', 587)
+                        s.starttls()
+                        s.login("sender email", "sender email password")
+                        message = '''ACCOUNT DETAIL UPDATE NOTIFICATION FROM FLIPEEL
+                        Hi! I am Ritwik Bhardwaj from FLIPEEL
+                        You have updated a detail in your account. This is just a notification and no action is required.
+                        We look forward to serving you.
+                        Have an amazing day:)
+                        Stay safe.
+
+
+
+                        PS: It is not you? Reply this email with a 'DELETE_NOT_ME' and we will erase all data associated with this account:)
+
+
+
+
+
+
+                        flipeel 2022 <3                        '''
+                        s.sendmail("sender email", email_id, message)
+                        s.quit()
                 #logical block 1A(i).2: phone number updation system
                 elif change == "p":
                     ph = int(input("confirm your phone number"))
@@ -43,6 +67,29 @@ if hello == "y" :
                     con.commit()
                     if y == 1:
                         print("detail updated") #database's table effected
+                        import smtplib
+                        s = smtplib.SMTP('smtp.gmail.com', 587)
+                        s.starttls()
+                        s.login("sender email", "sender email password")
+                        message = '''ACCOUNT DETAIL UPDATE NOTIFICATION FROM FLIPEEL
+                        Hi! I am Ritwik Bhardwaj from FLIPEEL
+                        You have updated a detail in your account. This is just a notification and no action is required.
+                        We look forward to serving you.
+                        Have an amazing day:)
+                        Stay safe.
+
+
+
+                        PS: It is not you? Reply this email with a 'DELETE_NOT_ME' and we will erase all data associated with this account:)
+
+
+
+
+
+
+                        flipeel 2022 <3                        '''
+                        s.sendmail("sender email", email_id, message)
+                        s.quit()
                         print("rerun for multiple edits")
                 #logical block 1A(i).3
                 elif change == "e":
@@ -53,13 +100,36 @@ if hello == "y" :
                     con.commit()
                     #implemting the query and observing database change.
                     if y == 1:
+                        import smtplib
+                        s = smtplib.SMTP('smtp.gmail.com', 587)
+                        s.starttls()
+                        s.login("sender email", "sender email password")
+                        message = '''ACCOUNT DETAIL UPDATE NOTIFICATION FROM FLIPEEL
+                        Hi! I am Ritwik Bhardwaj from FLIPEEL
+                        You have updated a detail in your account. This is just a notification and no action is required.
+                        We look forward to serving you.
+                        Have an amazing day:)
+                        Stay safe.
+
+
+
+                        PS: It is not you? Reply this email with a 'DELETE_NOT_ME' and we will erase all data associated with this account:)
+
+
+
+
+
+
+                        flipeel 2022 <3                        '''
+                        s.sendmail("sender email", email_id, message)
+                        s.quit()
                         print("detail updated")
                         print("rerun for multiple edits")
             #logical block 1A(ii): deleting details as per user's command
             elif hi == "d":
                 #program requesting user's input to implement conditional blocks accordingly
                 #erasing all account data is also an option given to the client
-                delete = input('''what do you want to change:
+                delete = input('''what do you want to delete:
                 Name (n)
                 PhoneNumber (p)
                 EmailId (e)
@@ -73,6 +143,29 @@ if hello == "y" :
                     #following demarcates that the program has made changes to the table
                     if y == 1:
                         print("detail deleted")
+                        import smtplib
+                        s = smtplib.SMTP('smtp.gmail.com', 587)
+                        s.starttls()
+                        s.login("sender email", "sender email password")
+                        message = '''ACCOUNT DETAIL DELETE NOTIFICATION FROM FLIPEEL
+                        Hi! I am Ritwik Bhardwaj from FLIPEEL
+                        You have deleted a detail in your account. This is just a notification and no action is required.
+                        We look forward to serving you.
+                        Have an amazing day:)
+                        Stay safe.
+
+
+
+                        PS: It is not you? Reply this email with a 'DELETE_NOT_ME' and we will erase all data associated with this account:)
+
+
+
+
+
+
+                        flipeel 2022 <3                        '''
+                        s.sendmail("sender email", email_id, message)
+                        s.quit()
                         print("rerun for multiple edits or to update") #if the client want to delete a detail again, a rerun is required.
                 #logical block 1A(ii).2: logical deletion of phone number
                 elif delete == "p":
@@ -83,16 +176,62 @@ if hello == "y" :
                     #following demarcates that the program has made changes to the table
                     if y == 1:
                         print("detail deleted")
+                        import smtplib
+                        s = smtplib.SMTP('smtp.gmail.com', 587)
+                        s.starttls()
+                        s.login("sender email", "sender email password")
+                        message = '''ACCOUNT DETAIL DELETE NOTIFICATION FROM FLIPEEL
+                        Hi! I am Ritwik Bhardwaj from FLIPEEL
+                        You have deleted a detail in your account. This is just a notification and no action is required.
+                        We look forward to serving you.
+                        Have an amazing day:)
+                        Stay safe.
+
+
+
+                        PS: It is not you? Reply this email with a 'DELETE_NOT_ME' and we will erase all data associated with this account:)
+
+
+
+
+
+
+                        flipeel 2022 <3                        '''
+                        s.sendmail("sender email", email_id, message)
+                        s.quit()
                         print("rerun for multiple edits or to update")
                 #logical block 1A(ii).3: logical deletion of email
                 elif delete == "e":
                     e = int(input("confirm your email id")) ##taking number to associate the client's email in the db with it
-                    sql1 = "delete from user_data SET email = NULL WHERE email = %a" #query for setting the associated email as NONE
+                    sql1 = "update user_data SET email = NULL WHERE email = %a" #query for setting the associated email as NONE
                     y = cursor.execute(sql1, [e])#implementing the query by replacing the placeholder with the variable
                     con.commit()#commiting all changes to the db's tables
                     #following demarcates that the program has made changes to the table
                     if y == 1:
-                        print("detail updated")
+                        print("detail deleted")
+                        import smtplib
+                        s = smtplib.SMTP('smtp.gmail.com', 587)
+                        s.starttls()
+                        s.login("sender email", "sender email password")
+                        message = '''ACCOUNT DETAIL DELETE NOTIFICATION FROM FLIPEEL
+                        Hi! I am Ritwik Bhardwaj from FLIPEEL
+                        You have deleted a detail in your account. This is just a notification and no action is required.
+                        We look forward to serving you.
+                        Have an amazing day:)
+                        Stay safe.
+
+
+
+                        PS: It is not you? Reply this email with a 'DELETE_NOT_ME' and we will erase all data associated with this account:)
+
+
+
+
+
+
+                        flipeel 2022 <3                        '''
+                        s.sendmail("sender email", email_id, message)
+                        s.quit()
                         print("rerun for multiple edits or to update")
                 #logical block 1A(ii).4: logical deletion of all the details associated to the client's account
                 elif delete == "da": #this is th feature that allows user to delete the whole account
@@ -102,15 +241,33 @@ if hello == "y" :
                     con.commit()#commiting all changes to the db's tables
                     #following demarcates that the program has made changes to the table
                     if y == 1:
-                        print("detail updated")
+                        print("account deleted:/")
+                        import smtplib
+                        s = smtplib.SMTP('smtp.gmail.com', 587)
+                        s.starttls()
+                        s.login("sender email", "sender email password")
+                        message = '''ACCOUNT DELETE NOTIFICATION FROM FLIPEEL
+                        Hi! I am Ritwik Bhardwaj from FLIPEEL
+                        Aw we are sorry to let you go:(. This is just a notification and no action is required.
+                        You are always welcome to join again.
+                        Have an amazing day:)
+                        Stay safe.
+
+
+
+                        PS: It is not you? Reply this email with a 'IT_WAS_NOT_ME' and we will erase all data associated with this account:)
+
+
+
+
+
+
+                        flipeel 2022 <3                        '''
+                        s.sendmail("sender email", email_id, message)
+                        s.quit()
                         print("rerun for multiple edits or to update")
 #account does not exist. directed to the main page for a rerun of the program.
 else:
     print("create an account today!")
     import __main__
     __main__
-
-
-            
-            
-

@@ -4,8 +4,8 @@ import requests
 from bs4 import BeautifulSoup as soup 
 
 
-print('''product library in development''')
-print("feature in stock: Computers and Peripherals")
+print('''product in stock: storage devices''')
+ei = input("confirm email id\n")
 my_url = "https://www.snapdeal.com/products/computers?sort=plrty"
 
 page_html = requests.get(my_url)
@@ -26,3 +26,4 @@ for container in containers:
         product_name = title_container[i].text
     #printing the titles extracted from the web page
         print(i, product_name)
+        

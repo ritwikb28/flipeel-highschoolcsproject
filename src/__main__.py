@@ -1,14 +1,14 @@
 #importing pyfiglet library for font art using ASCII
 import pyfiglet
 #creating the text and saving it in result
-result = pyfiglet.figlet_format("FLIPEEL")
+result = pyfiglet.figlet_format("FLIPEEL v2.0")
 print(result)
 #welcome text marking begining of the program
 print("##WELCOME TO FLIPEEL 2.0, We are so excited for you to see our fresh features!##")
-fname = input("your name:") #taking the client's name
+fname = input("your name:\n") #taking the client's name
 print("hello",fname)
-import signin #importing self created sign in module of the same folder
-signin #calling the module
+import sign_inup #importing self created sign in module of the same folder
+sign_inup #calling the module
 #signin module termination. implementation of the next line
 client_proceed = input("how can we serve you today? (account access/ tech market)"'\n') #taking client's choice of service
 #conditional block 1: tech market service
